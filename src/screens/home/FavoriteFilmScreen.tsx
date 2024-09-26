@@ -1,16 +1,13 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {AppNavigator} from './navigator';
+import {StyleSheet, Text, View} from 'react-native';
 
-const MainLayout = () => {
+export const FavoriteFilmScreen = () => {
   return (
     <View style={styles.container}>
-      <AppNavigator />
+      <Text>FavoriteFilmScreen</Text>
     </View>
   );
 };
-
-export default MainLayout;
 
 const styles = StyleSheet.create({
   container: {

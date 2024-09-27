@@ -2,7 +2,7 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {RouteKey} from '../RouteKey.ts';
 import {
-  BookingMovieScreen,
+  BookedMovieScreen,
   FavoriteMovieScreen,
   MovieScreen,
 } from '../../screens';
@@ -19,8 +19,8 @@ export const HomeNavigator = () => {
         component={FavoriteMovieScreen}
       />
       <HomeTab.Screen
-        name={RouteKey.BookingMovieScreen}
-        component={BookingMovieScreen}
+        name={RouteKey.BookedMovieScreen}
+        component={BookedMovieScreen}
       />
     </HomeTab.Navigator>
   );

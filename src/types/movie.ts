@@ -3,6 +3,6 @@ export interface IMovie {
   title: string;
   description: string;
   imageUrl: string;
-  watched: boolean;
+  booked: boolean;
   isFavorite: boolean;
 }

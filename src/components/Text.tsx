@@ -1,7 +1,33 @@
 import React from 'react';
-import type {TextProps} from 'react-native';
-import {Text as RNText} from 'react-native';
+import type {TextProps, TextStyle} from 'react-native';
+import {StyleSheet, Text as RNText} from 'react-native';
 
-export const Text = ({children, ...rest}: TextProps) => {
-  return <RNText {...rest}>{children}</RNText>;
+interface IText extends TextProps {
+  color?: TextStyle['color'];
+  fontSize?: TextStyle['fontSize'];
+  fontWeight?: TextStyle['fontWeight'];
+}
+
+export const Text = ({
+  children,
+  color,
+  fontSize,
+  fontWeight,
+  style,
+  ...rest
+}: IText) => {
+  return (
+    <RNText
+      style={StyleSheet.flatten([
+        style,
+        {
+          fontSize: fontSize ?? 16,
+          fontWeight: fontWeight ?? 'normal',
+          color: color ?? '#000',
+        },
+      ])}
+      {...rest}>
+      {children}
+    </RNText>
+  );
 };

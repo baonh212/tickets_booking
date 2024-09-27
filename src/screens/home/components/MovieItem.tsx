@@ -6,7 +6,7 @@ import {IMovie} from '../../../types';
 
 interface IMovieItemProps {
   movie: IMovie;
-  onPressBookTicket: (movie: IMovie) => void;
+  onPressBookTicket?: (movie: IMovie) => void;
   onToggleFavorite: (movieId: string) => void;
 }
 
@@ -27,14 +27,17 @@ export const MovieItem = memo(
           resizeMode="cover"
         />
         <Column style={styles.details}>
-          <Text style={styles.title}>{movie.title}</Text>
-          <Text style={styles.description}>{movie.description}</Text>
-          <Row style={styles.buttons}>
+          <Text fontSize={18}>{movie.title}</Text>
+          <Text style={styles.description} color={'gray'} numberOfLines={1}>
+            {movie.description}
+          </Text>
+          <Column>
             <Button
-              style={movie.watched ? styles.watchedButton : styles.bookButton}
-              onPress={() => !movie.watched && onPressBookTicket(movie)}>
+              disabled={movie.booked}
+              style={movie.booked ? styles.watchedButton : styles.bookButton}
+              onPress={() => !movie.booked && onPressBookTicket?.(movie)}>
               <Text style={styles.buttonText}>
-                {movie.watched ? 'Đã Xem' : 'Đặt Vé'}
+                {movie.booked ? 'Đã Xem' : 'Đặt Vé'}
               </Text>
             </Button>
             <Button
@@ -42,7 +45,7 @@ export const MovieItem = memo(
               onPress={() => onToggleFavorite(movie.id)}>
               <Text style={styles.buttonText}>Yêu Thích</Text>
             </Button>
-          </Row>
+          </Column>
         </Column>
       </Row>
     );
@@ -69,18 +72,8 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: 10,
   },
-  title: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
   description: {
-    fontSize: 14,
     marginVertical: 10,
-    color: '#666',
-  },
-  buttons: {
-    justifyContent: 'space-between',
-    alignItems: 'center',
   },
   bookButton: {
     backgroundColor: '#007bff',
@@ -102,5 +95,6 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 15,
     borderRadius: 5,
+    marginTop: 12,
   },
 });

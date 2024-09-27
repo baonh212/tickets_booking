@@ -1,11 +1,11 @@
 import React from 'react';
-import {ActivityIndicator, FlatList, StyleSheet} from 'react-native';
+import {FlatList, StyleSheet} from 'react-native';
 import {IMovie} from '../../../types';
 import {MovieItem} from './MovieItem.tsx';
 
 interface IMoviesList {
   data: IMovie[];
-  onPressBookTicket: (movie: IMovie) => void;
+  onPressBookTicket?: (movie: IMovie) => void;
   onToggleFavorite: (movieId: string) => void;
 }
 
@@ -30,7 +30,6 @@ export const MoviesList = ({
       maxToRenderPerBatch={20}
       windowSize={10}
       removeClippedSubviews={true}
-      ListEmptyComponent={<ActivityIndicator size={'large'} />}
     />
   );
 };

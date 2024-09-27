@@ -1,20 +1,17 @@
 import {RootState} from '../store.ts';
 import {IMovie} from '../../types';
+import {createSelector} from '@reduxjs/toolkit';
 
-const emptyArray: IMovie[] = [];
+const emptyArray: Record<string, IMovie> = {};
 
-const getAppMovies = (state: RootState) => {
-  if (!state.movie.movies) {
-    return emptyArray;
-  }
-  return state.movie.movies;
-};
+const getAppMovies = (state: RootState) => state.movie.movies || emptyArray;
 
-const getAppFavoriteMovies = (state: RootState) => {
-  if (!state.movie.favoriteMovies) {
-    return emptyArray;
-  }
-  return state.movie.favoriteMovies;
-};
+const getAppFavoriteMovies = createSelector([getAppMovies], movies => {
+  return Object.values(movies).filter(movie => movie.isFavorite);
+});
 
-export {getAppMovies, getAppFavoriteMovies};
+const getAppBookedMovies = createSelector([getAppMovies], movies => {
+  return Object.values(movies).filter(movie => movie.booked);
+});
+
+export {getAppMovies, getAppFavoriteMovies, getAppBookedMovies};

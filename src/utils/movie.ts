@@ -6,10 +6,10 @@ const generateMovies = (count: number): Record<string, IMovie> => {
   for (let i = 0; i < count; i++) {
     movies[i.toString()] = {
       id: i.toString(),
-      title: faker.lorem.words(20),
-      description: faker.lorem.sentence(),
+      title: faker.lorem.words(5),
+      description: faker.lorem.sentence(100),
       imageUrl: faker.image.urlPicsumPhotos({width: 200, height: 300}),
-      watched: false,
+      booked: false,
       isFavorite: false,
     };
   }

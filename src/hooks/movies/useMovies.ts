@@ -1,6 +1,10 @@
 import {useAppDispatch} from '../hooks.ts';
 import {generateMovies} from '../../utils';
-import {setMovies, toggleFavoriteMovie} from '../../redux/slices';
+import {
+  setMovies,
+  toggleBookMovie,
+  toggleFavoriteMovie,
+} from '../../redux/slices';
 import {useCallback, useEffect} from 'react';
 
 export const useMovies = () => {
@@ -11,8 +15,14 @@ export const useMovies = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const handleBookMovie = useCallback((id: string) => {
+    dispatch(toggleBookMovie(id));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return {
     handleToggleFavorite,
+    handleBookMovie,
   };
 };
 

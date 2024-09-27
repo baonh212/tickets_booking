@@ -1,8 +1,8 @@
 export enum RouteKey {
   /** Screen */
-  FilmScreen = 'FilmScreen',
-  FavoriteFilmScreen = 'FavoriteFilmScreen',
-  BookingFilmScreen = 'BookingFilmScreen',
+  MovieScreen = 'MovieScreen',
+  FavoriteMovieScreen = 'FavoriteMovieScreen',
+  BookingMovieScreen = 'BookingMovieScreen',
   BookTicketScreen = 'BookTicketScreen',
 
   /** Tab */

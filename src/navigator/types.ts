@@ -4,10 +4,11 @@ import type {
   NativeStackScreenProps,
 } from '@react-navigation/native-stack';
 import {RouteProp} from '@react-navigation/native';
+import {IMovie} from '../types';
 
 export type AppStackParamList = {
   [RouteKey.HomeTab]: undefined;
-  [RouteKey.BookTicketScreen]: undefined;
+  [RouteKey.BookTicketScreen]: {movie: IMovie};
 };
 
 export type AppNavigationProp = NativeStackNavigationProp<AppStackParamList>;
@@ -28,7 +29,7 @@ export type BookTicketScreenNavigationProps = NativeStackScreenProps<
 >;
 
 export type HomeNavigatorParamList = {
-  [RouteKey.FilmScreen]: undefined;
-  [RouteKey.FavoriteFilmScreen]: undefined;
-  [RouteKey.BookingFilmScreen]: undefined;
+  [RouteKey.MovieScreen]: undefined;
+  [RouteKey.FavoriteMovieScreen]: undefined;
+  [RouteKey.BookingMovieScreen]: undefined;
 };

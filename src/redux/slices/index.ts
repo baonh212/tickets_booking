@@ -1,4 +1,6 @@
 import {combineSlices} from '@reduxjs/toolkit';
-import filmSlice from './films.ts';
+import movieSlice from './movies.ts';
 
-export const rootReducer = combineSlices(filmSlice);
+export * from './movies';
+
+export const rootReducer = combineSlices(movieSlice);

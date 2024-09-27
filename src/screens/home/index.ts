@@ -1,3 +1,3 @@
-export * from './FavoriteFilmScreen.tsx';
-export * from './FilmScreen.tsx';
-export * from './BookingFilmScreen.tsx';
+export * from './FavoriteMovieScreen.tsx';
+export * from './MovieScreen.tsx';
+export * from './BookingMovieScreen.tsx';

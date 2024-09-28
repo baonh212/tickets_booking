@@ -7,7 +7,7 @@ describe('Movies test cases', () => {
     await element(by.id('book-ticket-item-button')).atIndex(0).tap();
     await element(by.id('book-ticket-button')).tap();
     await element(by.id('BookedMovieScreen')).tap();
-    await expect(element(by.id('watched-movie-item-text'))).toBeVisible();
+    await expect(element(by.text('Đã Xem')).atIndex(0)).toBeVisible();
   });
 
   it('should favorite a movie and move it to the Favorite tab', async () => {

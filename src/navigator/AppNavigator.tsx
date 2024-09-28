@@ -12,7 +12,10 @@ export const AppNavigator = () => {
   return (
     <NavigationContainer>
       <AppStack.Navigator>
-        <AppStack.Screen name={RouteKey.HomeTab} component={HomeNavigator} />
+        <AppStack.Screen
+          name={RouteKey.HomeTab}
+          component={HomeNavigator}
+        />
         <AppStack.Screen
           name={RouteKey.BookTicketScreen}
           component={BookTicketScreen}

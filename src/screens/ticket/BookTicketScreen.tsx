@@ -23,10 +23,12 @@ export const BookTicketScreen = () => {
       <ScreenContainer style={styles.content}>
         <ScrollView>
           <Image source={{uri: movie.imageUrl}} style={styles.thumbnail} />
-          <Text style={styles.title} fontSize={20}>
+          <Text testID={'movie-title-text'} style={styles.title} fontSize={20}>
             {movie.title}
           </Text>
-          <Text color={'gray'}>{movie.description}</Text>
+          <Text testID={'movie-description-text'} color={'gray'}>
+            {movie.description}
+          </Text>
         </ScrollView>
       </ScreenContainer>
       <Button

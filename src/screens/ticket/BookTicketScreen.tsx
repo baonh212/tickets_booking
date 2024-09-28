@@ -29,7 +29,10 @@ export const BookTicketScreen = () => {
           <Text color={'gray'}>{movie.description}</Text>
         </ScrollView>
       </ScreenContainer>
-      <Button style={styles.button} onPress={onBookTicket}>
+      <Button
+        testID={'book-ticket-button'}
+        style={styles.button}
+        onPress={onBookTicket}>
         <Text fontWeight={'bold'} color={'white'}>
           Đặt Vé
         </Text>

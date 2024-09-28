@@ -33,17 +33,33 @@ export const MovieItem = memo(
           </Text>
           <Column>
             <Button
+              testID={'book-ticket-item-button'}
               disabled={movie.booked}
               style={movie.booked ? styles.watchedButton : styles.bookButton}
               onPress={() => !movie.booked && onPressBookTicket?.(movie)}>
-              <Text style={styles.buttonText}>
+              <Text
+                testID={
+                  movie.booked
+                    ? 'watched-movie-item-text'
+                    : 'book-movie-item-text'
+                }
+                style={styles.buttonText}>
                 {movie.booked ? 'Đã Xem' : 'Đặt Vé'}
               </Text>
             </Button>
             <Button
+              testID={'toggle-favorite-button'}
               style={favoriteButtonStyle}
               onPress={() => onToggleFavorite(movie.id)}>
-              <Text style={styles.buttonText}>Yêu Thích</Text>
+              <Text
+                testID={
+                  movie.isFavorite
+                    ? 'favorite-movie-item-text'
+                    : 'un-favorite-movie-item-text'
+                }
+                style={styles.buttonText}>
+                Yêu Thích
+              </Text>
             </Button>
           </Column>
         </Column>
